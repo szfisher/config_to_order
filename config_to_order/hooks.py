@@ -250,6 +250,8 @@ def get_bom_items_as_dict(bom, company, qty=1, fetch_exploded=1, fetch_scrap_ite
 
 bom.get_bom_items_as_dict = get_bom_items_as_dict
 
+from erpnext.manufacturing.doctype.bom.bom import BOM
+
 def get_exploded_items(self):
 	""" Get all raw materials including items from child bom"""
 	self.cur_exploded_items = {}
@@ -274,7 +276,38 @@ def get_exploded_items(self):
 				'include_item_in_manufacturing': d.include_item_in_manufacturing
 			}))
 			
-bom.get_exploded_items = get_exploded_items
+BOM.get_exploded_items = get_exploded_items
+
+
+def get_child_exploded_items(self, bom_no, stock_qty):
+	""" Add all items from Flat BOM of child BOM"""
+	# Did not use qty_consumed_per_unit in the query, as it leads to rounding loss
+	child_fb_items = frappe.db.sql("""select bom_item.item_code, bom_item.item_name,
+			bom_item.description, bom_item.source_warehouse, bom_item.operation,
+			bom_item.stock_uom, bom_item.stock_qty, bom_item.rate, bom_item.include_item_in_manufacturing,
+			bom_item.stock_qty / ifnull(bom.quantity, 1) as qty_consumed_per_unit, bom_item.selection_condition,
+			bom_item.item_from_configuration, bom_item.qty_from_configuration,bom_item.desc_from_configuration
+			from `tabBOM Explosion Item` bom_item, tabBOM bom
+			where bom_item.parent = bom.name and bom.name = %s and bom.docstatus = 1""", bom_no, as_dict=1)
+
+	for d in child_fb_items:
+		self.add_to_cur_exploded_items(frappe._dict({
+			'item_code'			: d['item_code'],
+			'item_name'				: d['item_name'],
+			'source_warehou'		: d['source_warehouse'],
+			'operation'				: d['operation'],
+			'description'			: d['description'],
+			'stock_uom'				: d['stock_uom'],
+			'stock_qty'				: d['qty_consumed_per_unit'] * stock_qty,
+			'rate'					: flt(d['rate']),
+			'selection_condition': d['selection_condition'],
+			'item_from_configuration': d['item_from_configuration'],
+			'qty_from_configuration': d['qty_from_configuration'],
+			'desc_from_configuration': d['desc_from_configuration'],
+			'include_item_in_manufacturing': d.get('include_item_in_manufacturing', 0)
+		}))
+
+BOM.get_child_exploded_items = get_child_exploded_items
 
 from erpnext.manufacturing.doctype.work_order.work_order import WorkOrder
 
