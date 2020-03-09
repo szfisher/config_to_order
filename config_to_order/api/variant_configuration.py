@@ -98,7 +98,7 @@ def get_configuration_result(bom_no, fetch_exploded, configuration_doctype, conf
         elif item_from_configuration:
             ret = configuration.get(item_from_configuration) == bom_item.item_code
         elif selection_condition:
-            ret = frappe.safe_eval(selection_condition, None, configuration)
+            ret = frappe.safe_eval(selection_condition, None, {'doc':configuration})
 
         return ret
 
