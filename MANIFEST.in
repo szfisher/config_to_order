@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include config_to_order *.css
+recursive-include config_to_order *.csv
+recursive-include config_to_order *.html
+recursive-include config_to_order *.ico
+recursive-include config_to_order *.js
+recursive-include config_to_order *.json
+recursive-include config_to_order *.md
+recursive-include config_to_order *.png
+recursive-include config_to_order *.py
+recursive-include config_to_order *.svg
+recursive-include config_to_order *.txt
+recursive-exclude config_to_order *.pyc
