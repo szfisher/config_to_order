@@ -104,7 +104,7 @@ export default {
 						primary_action: function() {
 							var data = d.get_values();
 							frm.call({
-								method: 'erpnext.selling.doctype.sales_order.variant_configuration.get_configuration_result',
+								method: 'config_to_order.api.variant_configuration.get_configuration_result',
 								args: {
 									bom_no: data.bom_no,
 									fetch_exploded: data.fetch_exploded,
