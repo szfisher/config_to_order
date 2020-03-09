@@ -1,6 +1,5 @@
  {
   "autoname": "format:{reference_doctype}-{reference_docname}",
-  "custom": 1,
   "doctype": "DocType",
   "document_type": "",
   "editable_grid": 1,
