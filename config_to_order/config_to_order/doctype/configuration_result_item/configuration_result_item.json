@@ -1,0 +1,179 @@
+{
+  "custom": 1,
+  "doctype": "DocType",
+  "document_type": "",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "fields": [
+   {
+    "description": "",
+    "fieldname": "item_code",
+    "fieldtype": "Link",
+    "in_list_view": 1,
+    "label": "Item Code",
+    "options": "Item",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType",
+    "read_only": 1
+   },
+   {
+    "description": "",
+    "fieldname": "item_name",
+    "fieldtype": "Data",
+    "label": "Item Name",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType",
+    "read_only": 1
+   },
+   {
+    "fieldname": "column_break_3",
+    "fieldtype": "Column Break",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType"
+   },
+   {
+    "description": "",
+    "fieldname": "description",
+    "fieldtype": "Text",
+    "label": "Description",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType",
+    "read_only": 1
+   },
+   {
+    "fieldname": "section_break_4",
+    "fieldtype": "Section Break",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType"
+   },
+   {
+    "fieldname": "qty",
+    "fieldtype": "Float",
+    "in_list_view": 1,
+    "label": "Quantity",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType",
+    "read_only": 1
+   },
+   {
+    "fieldname": "column_break_7",
+    "fieldtype": "Column Break",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType"
+   },
+   {
+    "fieldname": "conversion_factor",
+    "fieldtype": "Float",
+    "label": "UOM  Conversion Factor",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType",
+    "read_only": 1
+   },
+   {
+    "fieldname": "stock_qty",
+    "fieldtype": "Float",
+    "label": "Qty As Per Stock UOM",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType",
+    "read_only": 1
+   },
+   {
+    "fieldname": "section_break_11",
+    "fieldtype": "Section Break",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType"
+   },
+   {
+    "fieldname": "price_list_rate",
+    "fieldtype": "Currency",
+    "label": "Price List Rate",
+    "options": "currency",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType",
+    "read_only": 1
+   },
+   {
+    "fieldname": "pricing_rule",
+    "fieldtype": "Link",
+    "label": "Pricing Rule",
+    "options": "Pricing Rule",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType",
+    "read_only": 1
+   },
+   {
+    "fieldname": "column_break_14",
+    "fieldtype": "Column Break",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType"
+   },
+   {
+    "fieldname": "discount_percentage",
+    "fieldtype": "Percent",
+    "label": "Discount Percentage",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType",
+    "read_only": 1
+   },
+   {
+    "fieldname": "discount_amount",
+    "fieldtype": "Currency",
+    "label": "Discount Amount",
+    "options": "currency",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType",
+    "read_only": 1
+   },
+   {
+    "fieldname": "section_break_17",
+    "fieldtype": "Section Break",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType"
+   },
+   {
+    "fieldname": "rate",
+    "fieldtype": "Currency",
+    "in_list_view": 1,
+    "label": "Rate",
+    "options": "currency",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType"
+   },
+   {
+    "fieldname": "amount",
+    "fieldtype": "Currency",
+    "in_list_view": 1,
+    "label": "Amount",
+    "options": "currency",
+    "parent": "Configuration Result Item",
+    "parentfield": "fields",
+    "parenttype": "DocType"
+   }
+  ],
+  "istable": 1,
+  "modified": "2020-02-28 13:32:37.069651",
+  "module": "Config To Order",
+  "name": "Configuration Result Item",
+  "name_case": "",
+  "quick_entry": 1,
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1
+ }
